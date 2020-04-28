@@ -25,10 +25,12 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+   
     <div id="root"></div>
+    <h1>hello</h1>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -39,5 +41,12 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <iput class="form-control" id="search" type="text" placeholder="Search..."/>
+    <div id="ma">
+      </div>
+      <script src="../src/components/Data"></script>
+    <script src="script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=createMap&libraries=places&key=AIzaSyBMLTtCd0Zd6s1diqDLxHzQC7RXvXZnz_s" async defer></script>
+  </script>
   </body>
 </html>
