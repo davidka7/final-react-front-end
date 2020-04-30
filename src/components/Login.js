@@ -58,6 +58,6 @@ export const Login = ({ loginError, signin }) => {
 }
 
 export default connect(
-  store => ({loginError: store.userContext}),
+  store => ({loginError: store.userContext.error}),
   dispatch => ({signin: (username, password) => login(username, password).then(dispatch)})
 )(Login);

@@ -1,26 +1,47 @@
-import React from "react";
+import React, {Component } from 'react';
 import { connect } from "react-redux"
 import Comment from "./Comment"
+import { getTopic } from '../actions/userAction';
+import SaveFoward from './SaveFoward'
+import ReactDOM from 'react-dom';
+import '../App.css';
 
-class Data extends React.Component {
-
-
-    render() {
+    export class Data extends Component {
+        componentDidMount(){
+            this.props.onFetchSaveds();
+        }
+        render () {
         return (
-            <div className='row'>      
+           
+    
+            
+            <div className='row'> 
+            hehe
+    <div className="block">main
+
+</div>
+            <SaveFoward/>  
             <div className='col-3 white-translucent-02 margin-10px radius-5px'><h5 className='margin-10px'>Topic 1 </h5><br/><Comment /></div>
-            <div className='col-3 white-translucent-02 margin-10px radius-5px'><h5 className='margin-10px'>Topic 2 </h5><br/><Comment /></div>
-            <div className='col-3 white-translucent-02 margin-10px radius-5px'><h5 className='margin-10px'>Topic 3 </h5><br/><Comment /></div>
+         
+         
         </div>
            
         );
-        
-    }
+        }
+}
+const mapDispacthToProps = (dispatch) => {
+return {
+onFetchSaveds:()=> getTopic(dispatch)
+
+}
+    
+
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (store) => {
+    console.log(store.topics)
     return {
-        dataList: state.data
+       topics: store
     }
 }
-export default connect(mapStateToProps)(Data)
+export default connect(mapStateToProps, mapDispacthToProps)(Data)

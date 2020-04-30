@@ -2,6 +2,15 @@
 .App {
   text-align: center;
 }
+/*.block{
+  background-image: url("fqQqkEh.jpg");
+  display: inline-block;
+  border: 2px solid rgb(0, 0, 0);
+  margin: 10px 10px;
+  overflow: hidden;
+  height: 450px;
+  width: 750px;
+}*/
 body {background-color: yellowgreen;}
 .App-logo {
   height: 40vmin;

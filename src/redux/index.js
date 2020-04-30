@@ -1,11 +1,14 @@
 import { userReducer } from "./userReducer";
 import { combineReducers } from "redux";
-import { dataReducer } from "./data/dataReducer";
-
+import { topics } from "../actions/userAction";
+//import { dataReducer } from "./dataReducer";
+import { dataReducer } from "./dataReducer";
 
 export default combineReducers({
-    data: dataReducer,
-    userContext: userReducer
+    
+   userContext: userReducer,
+
+   topics: dataReducer
 });
 
 

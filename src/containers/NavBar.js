@@ -12,6 +12,8 @@ const NavBar = ({user, signout}) => {
         >Account</NavLink>
       <NavLink className="donty" to='/' 
         >Home</NavLink>
+     
+    
         <li>
                     { user ? <button className="radius-5px btn btn-danger" onClick={signout}>Sign out</button> : null }
                     </li>
