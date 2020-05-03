@@ -1,25 +1,31 @@
-import React from "react";
-import { connect } from "react-redux";
+
+import React, {useEffect} from 'react'
+import {connect} from 'react-redux'
+import {getComment} from '../actions/commentAction'
 
 import '../App.css';
 
 
 // const youtubeEmbedLink = "https://www.youtube.com/embed/"
-const Comment = () => {
- 
+function Comment({getComment, commentz}) {
+    useEffect(() => {
+        getComment()
+    }, [])
 
     return (
         <div>
+        
+
+        {console.log(commentz)}
            Hello Boys
         </div>
 
     )
 }
 
-const mapStateToProps = store => {
+const mapDispatchToProps = (dispatch) => {
     return {
-       
+        getComment: () => getComment(dispatch),
     }
-};
-
-export default connect(mapStateToProps)(Comment);
+    }
+    export default connect(store=>({commentz:store}), mapDispatchToProps)(Comment)

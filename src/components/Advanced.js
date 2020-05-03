@@ -10,10 +10,15 @@ class Advanced extends React.Component {
     render() {
 
       return (
-        
-       <MapContainer
+        <div style={{ margin: '50px' }}>
+       <Map
+       google = {this.props.google}
+       center = {{lat: 18.5204, lng: 73.8567}}
+       height = '300px'
+       zoom={10}
      
      />
+     </div>
       );
     }
 }

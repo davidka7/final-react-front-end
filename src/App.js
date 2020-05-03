@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useReducer} from 'react';
 import { connect } from "react-redux"
 import './App.css';
 import Home from './components/Home'
-import Data from './components/Data'
+//import { initialState, reducer } from './redux/dataReducer'
 import NavBar from './containers/NavBar';
 import LoginPage from './containers/LoginPage';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Account from './containers/Account';
-
+//export const TopicContext = React.createContext()
 //import {useSelector, useDispatch}from 'react-redux'
 
 
 
 const App = ({ user }) => {
+  //const [topics, dispatch] = useReducer(reducer, initialState)
   console.log(user)
   return (
+    //<TopicContext.Provider value={{ topicState: topics, topicDispatch: dispatch}}>
       <Router>
         <NavBar />
         <Route exact path='/' render={(routeProps) => <Home {...routeProps} />} />
@@ -34,6 +36,7 @@ const App = ({ user }) => {
         <Route exact path='/' render={(routeProps) => <Home {...routeProps} />} />
      
       </Router>
+     // </TopicContext.Provider>
   );
 }
 
