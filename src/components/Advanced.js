@@ -10,7 +10,7 @@ function Advanced({topicz, toop}) {
    
 console.log(toop)
       return (
-         <div> <Comment toop={toop}/>,
+         <div> 
        <MapContainer/>
       </div>
       );

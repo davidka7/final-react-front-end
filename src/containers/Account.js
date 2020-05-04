@@ -43,7 +43,7 @@ function Account({getTopic, toop, getComment}) {
             <Data toop={toop}/>
             </Route>
             <Route path="/Search">
-            <Search />
+            <Search toop={toop}/>
           </Route>
           {/* <Route path="/Advanced"> */}
             

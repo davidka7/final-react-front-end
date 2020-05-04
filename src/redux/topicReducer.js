@@ -1,9 +1,10 @@
-const initialState = {topic:null}
+const initialState = []
 export const dataReducer = (state = initialState, action) => {
     console.log(action)
+   // if (action.type !== "GET_COMMENTS") {
     switch (action.type) {
             case "GET_TOPICS":
-                 return action.payload.map(top=>top) 
+                 return action.payload.map(top=>top)
                  case 'CREATE_TOPIC':
                    console.log(action.payload)
                   return [...state, action.payload.saveds];
@@ -14,5 +15,11 @@ export const dataReducer = (state = initialState, action) => {
               state
         
             };
-    };
+          }
+   // }
+   // else {
+//return null
+
+
+  //  }
 }

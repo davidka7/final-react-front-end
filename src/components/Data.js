@@ -19,9 +19,7 @@ function Data({getTopic, toop, addTopic, deleteTopic, topicz}) {
        addTopic(topic, user_id);
       }
 
-useEffect(() => {
-    getTopic()
-}, [])
+
 
 const handleDelete = (id) => {
     deleteTopic(id);
@@ -30,18 +28,24 @@ const handleDelete = (id) => {
 //getter() {
 //if (getTopic.data) { }
 //}
-console.log(toop.topic)
+console.log(toop.topic.topic, "hehe")
  let topics= [].slice.call(toop.topic)
+ let comments= [].slice.call(toop.comment) 
+ var array = toop.comment
 return (
 <div>
-{console.log(toop)}
-{console.log(topics)}
+{console.log(toop)}    
+{console.log(toop.comment)}
+{console.log(toop.topic)}
+{console.log(comments, "hehe")}
+{console.log(topicz)}
 
-{topics.map(t=><li>{t.topic}{<button onClick={() => handleDelete(t.id)} type="submit">Delete</button>}</li>)}
+{topics.map(t=><li>{t.topic}{comments.map(c=><li>{c.saved_id == t.id}{console.log(c)}</li>)}{<button onClick={() => handleDelete(t.id)} type="submit">Delete</button>}</li>)}
 
 <div>"                   "</div>
    <form onSubmit={handleSubmit}>
        <input
+       
        placeholder="Topic...."
                       onChange={handleTopicChange}
                       value={topic}>
@@ -59,7 +63,7 @@ const mapDispatchToProps = (dispatch) => {
    
 return {
   
-    getTopic: () => getTopic(dispatch),
+   
     addTopic: (topic, user_id) => {
         addTopic(topic, user_id).then(dispatch)
       

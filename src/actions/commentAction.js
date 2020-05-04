@@ -1,15 +1,10 @@
-export const comment = (comment, search, user_id) => {
-   
-    return addComment(`http://localhost:3000/api/v1/saveds`, comment, search, user_id);
-}  
- 
-  
-  export const addComment = (api, comment, search, user_id) => {
+export const addComment = ( comment, search, saved_id) => {
     const entry = {
         comment: {
-            user_id,
-            comment,
-            search
+        
+            comment: comment,
+            search: search,
+            saved_id: saved_id
         }
     }
     return fetch(`http://localhost:3000/api/v1/comments`, {
@@ -21,8 +16,20 @@ export const comment = (comment, search, user_id) => {
        // Authorization: token()
     },
       body: JSON.stringify(entry)
-    }).then(res => res.json());
-  };
+    }).then(res => res.json())
+    .then(res => {
+        if (res.error) {
+            return {
+                type: "CREATE_COMMENT_ERROR",
+                error: res.error
+            };
+        }
+        return {
+            type: "CREATE_COMMENT",
+            payload: res
+        }
+        
+    })}
        
  
 

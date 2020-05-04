@@ -2,7 +2,8 @@ const USER_STORAGE_KEY = "user";
 const INITIAL_STATE = JSON.parse(localStorage.getItem(USER_STORAGE_KEY)) || { user: null, error: null };
 
 export const userReducer = (state = INITIAL_STATE, action) => {
-    console.log(action.payload)
+    console.log(action)
+    
     switch (action.type) {
         case "LOGIN":
             localStorage.setItem("token", action.payload.jwt)
