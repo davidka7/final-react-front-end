@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Data from '../components/Data'
 import Search from '../components/Search'
 import Advanced from '../components/Advanced'
+import {getTopic} from '../actions/topicAction'
+import {getComment} from '../actions/commentAction'
+import {connect} from 'react-redux'
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,20 +12,26 @@ import {
   Link
 } from "react-router-dom";
 
-export default function Account() {
+function Account({getTopic, toop, getComment}) {
+    useEffect(() => {
+        getTopic()
+    }, [])
+    useEffect(() => {
+        getComment()
+    }, [])
   return (
     <Router>
       <div>
         <nav>
           <ul>
             <li>
-              <Link to="/Data">Data</Link>
+              <Link to="/Data">Saved Info</Link>
             </li>
             <li>
-              <Link to="/Search">Seach</Link>
+              <Link to="/Search">Just Search Map</Link>
             </li>
             <li>
-              <Link to="/Advanced">Advanced</Link>
+              {/* <Link to="/Advanced">Advanced Search and Save</Link> */}
             </li>
           </ul>
         </nav>
@@ -31,17 +40,26 @@ export default function Account() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/Data">
-            <Data />
+            <Data toop={toop}/>
             </Route>
             <Route path="/Search">
             <Search />
           </Route>
-          <Route path="/Advanced">
-            <Advanced />
-          </Route>
+          {/* <Route path="/Advanced"> */}
+            
+          {/* </Route> */}
         </Switch>
+        <Advanced toop={toop}/>
       </div>
     </Router>
+    
   );
 }
 
+const mapDispatchToProps = (dispatch) => {
+   
+    return {
+        getComment: () => getComment(dispatch),
+        getTopic: () => getTopic(dispatch)
+     }}
+    export default connect(store=>({toop:store}), mapDispatchToProps)(Account)

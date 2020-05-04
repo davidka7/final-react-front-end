@@ -1,26 +1,20 @@
 import React from "react";
 import { connect } from "react-redux"
-import Map from './Map'
+
 import MapContainer from './MapContainer'
+import { addComment} from '../actions/commentAction'
+import Comment from './Comment'
 
+function Advanced({topicz, toop}) {
 
-
-class Advanced extends React.Component {
-
-    render() {
-
+   
+console.log(toop)
       return (
-        <div style={{ margin: '50px' }}>
-       <Map
-       google = {this.props.google}
-       center = {{lat: 18.5204, lng: 73.8567}}
-       height = '300px'
-       zoom={10}
-     
-     />
-     </div>
+         <div> <Comment toop={toop}/>,
+       <MapContainer/>
+      </div>
       );
-    }
+    
 }
 
 const mapStateToProps = state => {
@@ -28,4 +22,4 @@ const mapStateToProps = state => {
         dataList: state.data
     }
 }
-export default connect(mapStateToProps)(Advanced)
+export default connect(store=>({topicz:store}),mapStateToProps)(Advanced)

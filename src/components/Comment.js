@@ -1,31 +1,35 @@
-
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
 import {getComment} from '../actions/commentAction'
 
-import '../App.css';
 
 
-// const youtubeEmbedLink = "https://www.youtube.com/embed/"
-function Comment({getComment, commentz}) {
-    useEffect(() => {
-        getComment()
-    }, [])
+function Comment({getComment, topicz, toop}) {
+    console.log(getComment)
+useEffect(() => {
+    getComment()
+}, [])
 
-    return (
-        <div>
-        
+//getter() {
+//if (getTopic.data) { }
+//}
 
-        {console.log(commentz)}
-           Hello Boys
-        </div>
+console.log(toop)
+return (
 
-    )
+<div>
+
+<div>"      hi             "</div>
+  
+    </div>
+
+
+)
 }
-
 const mapDispatchToProps = (dispatch) => {
-    return {
-        getComment: () => getComment(dispatch),
-    }
-    }
-    export default connect(store=>({commentz:store}), mapDispatchToProps)(Comment)
+   
+return {
+    
+    getComment: () => getComment(dispatch)
+   }}
+export default connect(store=>({commentz: store}), mapDispatchToProps)(Comment)

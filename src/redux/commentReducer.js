@@ -1,9 +1,9 @@
-const initialState = []
+const initialState = ["hi","why"]
 export const commentReducer = (state = initialState, action) => {
     console.log(action)
     switch (action.type) {
             case "GET_COMMENTS":
-                 return action.payload.map(top=>top) 
+                 return   action.payload.map(top=>top)
                         
         default:
            return {

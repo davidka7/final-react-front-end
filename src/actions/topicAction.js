@@ -1,7 +1,10 @@
-export const addTopic = (api, topic, user_id) => {
+export const addTopic = ( topic, user_id) => {
+    console.log(topic, user_id)
     const entry = {
         saved: {
-            topic
+            topic: topic,
+            user_id: user_id
+
         }
     }
     return fetch(`http://localhost:3000/api/v1/saveds`, {
@@ -13,8 +16,21 @@ export const addTopic = (api, topic, user_id) => {
        Authorization: localStorage.getItem("token")
     },
       body: JSON.stringify(entry)
-    }).then(res => res.json());
-  };
+    }).then(res => res.json())
+    .then(res => {
+        if (res.error) {
+            return {
+                type: "CREATE_TOPIC_ERROR",
+                error: res.error
+            };
+        }
+        return {
+            type: "CREATE_TOPIC",
+            payload: res
+        }
+    });
+            
+                     }         
 
 export const getTopic = (dispatch) => {
     return fetch(`http://localhost:3000/api/v1/saveds`, {
@@ -35,13 +51,40 @@ export const getTopic = (dispatch) => {
             }
             dispatch(
                 {
-                    type: "GET_TOPICS",
+                    type:"GET_TOPICS",
                     payload: res
                 }
             ) 
          }) };
 
-         export const topicer = (topic, user_id) => {
-   
-            return addTopic(`http://localhost:3000/api/v1/saveds`, topic, user_id);
-        }  
+         export const deleteTopic = (id, dispatch) => {
+            fetch(`http://localhost:3000/api/v1/saveds/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: localStorage.getItem("token")
+                },
+            }).then(res => res.json())
+            .then(res => {
+                if (res.error) {
+                    dispatch( {
+                        type: "DELETE_TOPIC_ERROR",
+                        error: res.error
+                    });
+                }
+                else {
+                    dispatch(
+                        {
+                            type: "DELETE_TOPIC",
+                            id: id
+                        }
+                    );
+                }
+            }).catch(err => {
+                dispatch( {
+                    type: "DELETE_TOPIC_ERROR",
+                    error: err
+                })
+            });
+        }

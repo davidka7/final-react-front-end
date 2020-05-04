@@ -48,6 +48,6 @@ console.log(mapStatetoProp)
 export default connect(mapStatetoProp)(App);
 
 
-//  <h1> Data : {data.map( obj=> <li>{obj.dataName}</li>)}</h1>
+//  <h1> Data : {data.map( obj=> {obj.dataName})}</h1>
  // <button onClick={(()=> dispatch({type:"ADD_DATA"}))}>Add Hehe</button>
  // <button onClick={(()=> dispatch({type:"just_data"}))}>just jane</button>

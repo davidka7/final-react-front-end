@@ -1,62 +1,54 @@
 // import React, { useContext, useState, useEffect } from "react";
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
-import {getTopic} from '../actions/topicAction'
-import Comment from './Comment'
-// //const useFetch = url => {
-//   //const [data, setData] = useState(null);
-//   //const [loading, setLoading] = useState(true);
+import {getTopic, addTopic, deleteTopic} from '../actions/topicAction'
+import { getComment} from '../actions/commentAction'
 
-//   // Similar to componentDidMount and componentDidUpdate:
-//  // useEffect(async () => {
 
-//    // Authorization: localStorage.getItem("token")
-//    // const response = await fetch(url);
-//    // const data = await response.json();
+function Data({getTopic, toop, addTopic, deleteTopic, topicz}) {
+    const [topic, setTopic] = useState('');
+    const user_id = topicz.userContext.user.user.id;
+    console.log(toop)
+    const handleTopicChange = e => {
+        setTopic(e.target.value);
+      }
+  
+      const handleSubmit = e => {
+        e.preventDefault();
+        e.stopPropagation();
+       addTopic(topic, user_id);
+      }
 
-    
-//    console.log(data)
-//    // console.log(data.results)
-//     const [item] = data.results;
-//     setData(item);
-//     setLoading(false);
-//   }, []);
-
-//   return { data, loading };
-// };
-
-// export default () => {
-//   const [count, setCount] = useState(0);
-//   const { data, loading } = useFetch("http://localhost:3000/api/v1/saveds");
-
-//   return (
-//     <div>
-//       <p>You clicked {count} times</p>
-//       <button onClick={() => setCount(count + 1)}>Click me</button>
-//       {loading ? <div>...loading</div> : <div>{data.map(obj=>obj)}</div>}
-//     </div>
-//   );
-// };
-//import React, {useContext} from 'react'
-//import {TopicContext} from '../App'
-
-function Data({getTopic, topicz}) {
-//const topicContext = useContext(TopicContext)
 useEffect(() => {
     getTopic()
 }, [])
+
+const handleDelete = (id) => {
+    deleteTopic(id);
+
+}
 //getter() {
 //if (getTopic.data) { }
 //}
-
- const topics= [].slice.call(topicz.topic)
+console.log(toop.topic)
+ let topics= [].slice.call(toop.topic)
 return (
 <div>
-   hi
+{console.log(toop)}
+{console.log(topics)}
 
+{topics.map(t=><li>{t.topic}{<button onClick={() => handleDelete(t.id)} type="submit">Delete</button>}</li>)}
 
-  { topics.map(t=><h1>{t.topic}
-   <Comment x={t.user_id}/> </h1>) }
+<div>"                   "</div>
+   <form onSubmit={handleSubmit}>
+       <input
+       placeholder="Topic...."
+                      onChange={handleTopicChange}
+                      value={topic}>
+                      </input>
+                      
+<button type="submit"> </button>
+</form>
 
     </div>
 
@@ -64,8 +56,13 @@ return (
 )
 }
 const mapDispatchToProps = (dispatch) => {
+   
 return {
+  
     getTopic: () => getTopic(dispatch),
-}
-}
+    addTopic: (topic, user_id) => {
+        addTopic(topic, user_id).then(dispatch)
+      
+},  deleteTopic: (id) => deleteTopic(id, dispatch)
+}}
 export default connect(store=>({topicz:store}), mapDispatchToProps)(Data)
