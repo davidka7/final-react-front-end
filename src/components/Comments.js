@@ -1,0 +1,78 @@
+import React, {useEffect, useState} from 'react'
+import {connect} from 'react-redux'
+import {addComment} from '../actions/commentAction'
+
+function Comments({addComment, city, area, state, address, lat, lng, commentz}) {
+console.log(city, area, state, address, lat, lng)
+const [comment, setComment] = useState('');
+const [search, setSearch] = useState('');
+const [saved_id, setSaved_id] = useState('');
+    // console.log(toop)
+    // const handleCommentChange = e => {
+    //     setComment(e.target.value);
+    //   }
+    //   const handleSearchChange = e => {
+    //     setSearch(e.target.value);
+    //   }
+      const handleSaved_idChange = e => {
+        setSaved_id(e.target.value);
+      }
+      const handleSubmit = e => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('hey')
+       addComment(`${city},${area},${state},${address}`, `${lat}, ${lng}`, saved_id);
+      }
+//getter() {
+//if (getTopic.data) { }
+//}
+
+//console.log(toop)
+function fixer(){
+    console.log(city)
+if (city) {
+return <form onSubmit={handleSubmit}>
+{/* <input
+placeholder="Comment...."
+               onChange={handleCommentChange}
+               value={comment}>
+               </input>
+               <input
+placeholder="Search...."
+               onChange={handleSearchChange}
+               value={search}>
+               </input> */}
+            {commentz.topic.topic.map(t=>
+            <div>
+               <input 
+               id={t.id}
+               type="radio"  
+               checked={((!saved_id) ? null : ((saved_id == t.id) ? true : false  )) } 
+               onChange={handleSaved_idChange}
+               value={t.id}
+               label={t.topic} /> 
+              {t.topic}</div>
+               )}
+                    
+
+<button type="submit"> </button>
+</form>
+
+}
+    }
+    const Checkbox = props => (
+        <input type="checkbox" {...props} />
+      )
+return (
+<div>
+{fixer()}
+    </div>
+)
+}
+const mapDispatchToProps = (dispatch) => {
+return {
+   addComment: (comment, search, saved_id) => {
+        addComment(comment, search, saved_id).then(dispatch)
+}
+   }}
+export default connect(store=>({commentz: store}), mapDispatchToProps)(Comments)

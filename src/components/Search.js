@@ -34,7 +34,9 @@ export default function Map({toop}) {
 //   }, []);
 
  return (
-     <div><Comment toop={toop}/></div>
+     <div>
+         {/* <Comment toop={toop}/> */}
+         </div>
 //     <GoogleMap
 //       defaultZoom={10}
 //       defaultCenter={{ lat: 45.4211, lng: -75.6903 }}

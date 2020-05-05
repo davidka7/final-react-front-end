@@ -4,15 +4,17 @@ export const dataReducer = (state = initialState, action) => {
    // if (action.type !== "GET_COMMENTS") {
     switch (action.type) {
             case "GET_TOPICS":
-                 return action.payload.map(top=>top)
+                 return {state, topic: action.payload.map(top=>top)}
                  case 'CREATE_TOPIC':
                    console.log(action.payload)
-                  return [...state, action.payload.saveds];
+                  return {...state, topic: [...state.topic, action.payload.saveds]};
                   case 'DELETE_TOPIC':
-                  return state.filter((p) => p.id !== action.id)
+                    console.log(action, "delete")
+                    console.log(state.topic)
+                  return {state, topic: state.topic.filter((p) => p.id !== action.id)}
         default:
            return {
-              state
+              ...state
         
             };
           }

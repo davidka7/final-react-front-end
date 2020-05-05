@@ -29,20 +29,19 @@ const handleDelete = (id) => {
 //if (getTopic.data) { }
 //}
 console.log(toop.topic.topic, "hehe")
- let topics= [].slice.call(toop.topic)
- let comments= [].slice.call(toop.comment) 
- var array = toop.comment
+
+ //let comments= [].slice.call(toop.comment) 
+ //var array = toop.comment
 return (
 <div>
 {console.log(toop)}    
-{console.log(toop.comment)}
-{console.log(toop.topic)}
-{console.log(comments, "hehe")}
-{console.log(topicz)}
+{console.log(toop.comment.comment)}
+{console.log(toop.topic.topic)}
+{/* {console.log(comments, "hehe")} */}
 
-{topics.map(t=><li>{t.topic}{comments.map(c=><li>{c.saved_id == t.id}{console.log(c)}</li>)}{<button onClick={() => handleDelete(t.id)} type="submit">Delete</button>}</li>)}
 
-<div>"                   "</div>
+{toop.topic.topic.map(t=><li>{`${t.topic} ${toop.comment.comment.map(c=>c.saved_id===t.id ? (`Comments: ${c.comment}, Search Box: ${c.search};`) : (null))}`}{<button onClick={() => handleDelete(t.id)} type="submit">Delete</button>}</li>)}
+
    <form onSubmit={handleSubmit}>
        <input
        

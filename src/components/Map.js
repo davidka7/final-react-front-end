@@ -2,11 +2,17 @@ import React from 'react'
 import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from "react-google-maps";
 import Autocomplete from 'react-google-autocomplete';
 import Geocode from "react-geocode";
+import { connect } from "react-redux"
+import Comments from './Comments'
+
+
 Geocode.setApiKey("AIzaSyBMLTtCd0Zd6s1diqDLxHzQC7RXvXZnz_s");
 Geocode.enableDebug();
 class Map extends React.Component{
 constructor( props ){
+
   super( props );
+  //console.log(props)
   this.state = {
    address: '',
    city: '',
@@ -25,6 +31,7 @@ constructor( props ){
 /**
   * Get the current address from the default map position and set those values in the state
   */
+ 
  componentDidMount() {
   Geocode.fromLatLng( this.state.mapPosition.lat , this.state.mapPosition.lng ).then(
    response => {
@@ -193,6 +200,7 @@ this.setState( {
   );
  };
 render(){
+    //console.log(this.props.topicz)
 const AsyncMap = withScriptjs(
    withGoogleMap(
     props => (
@@ -236,7 +244,7 @@ const AsyncMap = withScriptjs(
 let map;
   if( this.props.center.lat !== undefined ) {
    map = <div>
-     <div>
+     {/* <div>
       <div className="form-group">
        <label htmlFor="">City</label>
        <input type="text" name="city" className="form-control" onChange={ this.onChange } readOnly="readOnly" value={ this.state.city }/>
@@ -253,9 +261,11 @@ let map;
        <label htmlFor="">Address</label>
        <input type="text" name="address" className="form-control" onChange={ this.onChange } readOnly="readOnly" value={ this.state.address }/>
       </div>
-     </div>
+     </div> */}
+     <Comments city={this.state.city} area={this.state.area} state={this.state.state} address={this.state.address} lat={this.state.markerPosition.lat} lng={this.state.markerPosition.lng}/>
      <AsyncMap
-      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMLTtCd0Zd6s1diqDLxHzQC7RXvXZnz_s&libraries=places"
+      googleMapURL="https://maps.googleapis.com/maps/api/js?callback=createMap&libraries=places&key=AIzaSyBMLTtCd0Zd6s1diqDLxHzQC7RXvXZnz_s&callback=initMap"
+     
       loadingElement={
        <div style={{ height: `100%` }} />
       }
@@ -270,7 +280,13 @@ let map;
 } else {
    map = <div style={{height: this.props.height}} />
   }
-  return( map )
+  return( 
+  <div>
+      {console.log(this.props.topicz)}
+      {/* <Comment too={this.props.topicz}/> */}
+  {map}</div> )
  }
 }
-export default Map
+
+
+export default connect(store=>({topicz:store}))(Map)

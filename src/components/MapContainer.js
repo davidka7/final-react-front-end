@@ -8,7 +8,7 @@ import Map from './Map'
 class MapContainer extends React.Component {
 
     render() {
-
+console.log(this.props.topicz)
       return (
         <div style={{ margin: '50px' }}>
             HI
@@ -26,7 +26,7 @@ class MapContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        dataList: state.data
+        dataList: state
     }
 }
 export default connect(store=>({topicz:store}),mapStateToProps)(MapContainer)

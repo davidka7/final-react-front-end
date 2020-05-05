@@ -5,13 +5,15 @@ import {addComment} from '../actions/commentAction'
 
 
 function Comment({ topicz, toop, addComment, commentz}) {
+console.log(commentz)
+console.log(topicz)
 
 
 const [comment, setComment] = useState('');
 const [search, setSearch] = useState('');
 const [saved_id, setSaved_id] = useState('');
     
-    console.log(toop)
+    // console.log(toop)
     const handleCommentChange = e => {
         setComment(e.target.value);
       }
@@ -30,9 +32,8 @@ const [saved_id, setSaved_id] = useState('');
 //if (getTopic.data) { }
 //}
 
-console.log(toop)
+//console.log(toop)
 
-let topics= [].slice.call(toop.topic)
 return (
 
 <div>
@@ -50,10 +51,11 @@ return (
                       onChange={handleSearchChange}
                       value={search}>
                       </input>
-                    
-                      {console.log(toop.topic[0], "newhehe")}
-                {console.log(topics), "hoho"}
-{topics.map(t=><li>{console.log(t)}{`${t.topic} and id ${t.id}`}</li>)}
+                      {/* {console.log(toop, "toop")} */}
+                      {/* {console.log(toop.topic, "newhehe")} */}
+                      {/* {console.log(toop.topic.topic, "topic.topic")} */}
+                      {/* {console.log(topics, "topics")} */}
+{toop.topic.topic.map(t=><li>{console.log(t)}{`${t.topic} and id ${t.id}`}</li>)}
 
                       <input
        placeholder="topics id...."
