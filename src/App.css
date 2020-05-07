@@ -51,7 +51,25 @@ opacity:.4;
 
 
   }
+#ruin {
+  background: none repeat scroll 0 0 #66A3D2;
+  border-color: #FFFFFF #327CB5 #327CB5 #FFFFFF;
+  border-radius: 10px 10px 10px 10px;
+  border-style: solid;
+  margin-right: 50%;
+  margin-left: 16.3%;
+  width: 1000px;
+  border-width: 1px;
+  box-shadow: 1px 1px 3px #333333;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 100px;
+  padding: 100px;
+  text-align: center;
+  text-shadow: 1px 1px 1px #000000;
 
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

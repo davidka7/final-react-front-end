@@ -31,8 +31,8 @@
     }
 } */
 #showMe {
-    -webkit-animation: cssAnimation 5s forwards; 
-    animation: cssAnimation 5s forwards;
+    -webkit-animation: cssAnimation 7s forwards; 
+    animation: cssAnimation 7s forwards;
     position: relative;
 }
 @keyframes cssAnimation {
@@ -72,3 +72,4 @@
     /* 70%  {opacity: 1;} */
     100% {opacity: 0;}
 }
+

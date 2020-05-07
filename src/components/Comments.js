@@ -14,8 +14,8 @@ const [saved_id, setSaved_id] = useState('');
     // const handleCommentChange = e => {
     //     setComment(e.target.value);
     //   }
-    const [numbery, setNumbery] = useState(5)
-    const [numb, setNumb] = useState(2)
+    const [numbery, setNumbery] = useState(4)
+    const [numb, setNumb] = useState(1)
     const [sizer, setSizer] = useState("Small")
         const handleClick = (e) => {
             //...

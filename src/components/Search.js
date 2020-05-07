@@ -5,6 +5,7 @@ import Advanced from "./Advanced";
 import '../Search.css';
 //import Pace from 'react-pace-progress'
 import '../Search.css'
+import $ from 'jquery'
 import { BounceLoader, BarLoader, BeatLoader} from 'react-spinners'
 // import {
 //   withGoogleMap,
@@ -58,6 +59,9 @@ export default function Map({toop}) {
 // }
 // setTimeout(() => {
     
+   
+  
+  
  return (
      <div className='Search'>
          
@@ -74,6 +78,8 @@ export default function Map({toop}) {
 
 
          <Advanced toop={toop}/>
+
+        
          </div>
 
          </div>

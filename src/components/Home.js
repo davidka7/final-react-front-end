@@ -31,8 +31,31 @@ else if (e.target.value == 5) {
         return (
           <div>
           {/* {    alert(document.body.style.backgroundImage = "linear-gradient(to bottom, rgba(58, 57, 57, 0.5) 0%, rgba(50, 48, 48, 0.5) 100%), url('papers.co-mm55-chicago-night-sky-city-blue-flare-40-wallpaper.jpg')") } */}
-          <input type="range" min={0} max={5} value={color} onChange={handleClick}/>
+          <input id="ruin" type="range" min={0} max={5} value={color} onChange={handleClick}/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
+             <br/>
              
+             <br/>
             </div>
         );
   
