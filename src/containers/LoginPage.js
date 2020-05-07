@@ -1,7 +1,7 @@
 import React from 'react';
 import Signup from '../components/Signup';
 import Login from '../components/Login';
-
+import './special.css'
 const LoginPage = (props) => {
 
     return (

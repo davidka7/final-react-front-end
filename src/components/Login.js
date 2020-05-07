@@ -24,7 +24,7 @@ export const Login = ({ loginError, signin }) => {
     return (
         <form onSubmit={handleSubmit}>
             <fieldset>
-                <legend className="text-center">Have an account?</legend>
+                <div className="special"><legend className="text-center">Have an account?</legend></div>
                 <div className="form-group row"></div>
                 
                 <div className="form-group">
@@ -48,7 +48,7 @@ export const Login = ({ loginError, signin }) => {
                       value={password}
                     ></input>
                     {loginError
-                      ? <div className="invalid-feedback">Sorry, that username and password doesn't match?</div>
+                      ?  <div className="special"><div className="invalid-feedback">Sorry, that username and password doesn't match?</div></div>
                       : null}
                 </div>
                 <button type="submit" className="btn btn-primary radius-5px btn-block">Log in</button>

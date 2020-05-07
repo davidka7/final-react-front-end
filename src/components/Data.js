@@ -8,6 +8,9 @@ import Button from 'react-bootstrap/Button';
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../../node_modules/bootstrap/dist/js/bootstrap.js";
 import MapContainer2 from './MapContainer2'
+import '../containers/special.css'
+
+import {Link} from 'react-scroll'
 // or less ideally
 // import $ from 'jquery';
 // import Popper from 'popper.js';
@@ -54,7 +57,8 @@ console.log(mappy)
 // </div></div>)
 
 // }
-
+// const anchor = document.querySelector('#some-id')
+// anchor.scrollIntoView({ behavior: 'smooth', block: 'center' })
 const handleDelete = (id) => {
     deleteTopic(id);
 
@@ -67,21 +71,53 @@ console.log(toop.topic.topic, "hehe")
  //let comments= [].slice.call(toop.comment) 
  //var array = toop.comment
 return (
-<div>
-{console.log(toop)}    
-{console.log(toop.comment.comment)}
-{console.log(toop.topic.topic)}
-{/* {console.log(comments, "hehe")} */}
-{/* {toop.topic.topic.map(t=><li>{
     
+<div className="row row-cols-1 row-cols-md-2">
+<div class="col mb-4">
+<div class="card">
+<div class="card-body">
     
-    }</li>)
-} */}
+<h5 class="card-title">Create New Topic</h5>
+<p class="card-text">
+   <form onSubmit={handleSubmit}>
+       <input
+       
+       placeholder="Topic...."
+                      onChange={handleTopicChange}
+                      value={topic}>
+                      </input>
+                      
+<Button bsPrefix="super-btn" variant="secondary" type="submit"> Submit</Button>
+{toop.topic.topic.map(t => <li>
+<Link
+activeClass="active"
+to={t.topic}
+spy={true}
+smooth={true}
+offset={0}
+duration={500}
 
-{toop.topic.topic.map(t=><li>{t.topic}{toop.comment.comment.filter(c=>c.saved_id==t.id).map(x=><div>
+>click
+</Link>
+</li>
+)}
+</form>
+
+</p>
+</div>
+</div>
+</div>
+{toop.topic.topic.map(t=><li><div class="col mb-4">
+<div class="card">
+<div class="card-body">
+<h5 class="card-title" id={t.topic}>{t.topic} </h5>
+
+
+{toop.comment.comment.filter(c=>c.saved_id==t.id).map(x=><p class="card-text">
     Comments: {x.comment}, SearchBox: {x.search}
     {console.log(x.id)}
     <div>
+
     <button type="button" className="btn btn-primary" data-toggle="modal" data-target={`#Modal${x.id}`}>
   Launch Map
 </button>
@@ -106,7 +142,7 @@ return (
   </div>
     </div>
     </div>
-    </div>
+    </p>
 
 
 
@@ -115,23 +151,14 @@ return (
 
 
 
-}{ <div > Delete Topic Officially<button onClick={() => handleDelete(t.id)} type="submit">Delete</button></div>}</li>)} 
+}{ <div > Delete Topic Officially<button onClick={() => handleDelete(t.id)} type="submit">Delete</button></div>}</div>
+</div></div></li>)} 
 
 
- <div><h2> Create New Topic </h2></div>
-   <form onSubmit={handleSubmit}>
-       <input
-       
-       placeholder="Topic...."
-                      onChange={handleTopicChange}
-                      value={topic}>
-                      </input>
-                      
-<Button bsPrefix="super-btn" variant="secondary" type="submit"> Submit</Button>
-</form>
-
+<div id='some-id'> hehe
+</div>
+<div id="mainer"></div>
     </div>
-
 
 )
 }

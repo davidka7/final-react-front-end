@@ -47,9 +47,9 @@ function Account({getTopic, toop, getComment}) {
       <li className="nav-item">
       <Link to="/Search">Just Search Map</Link>
       </li>
-      <li className="nav-item">
+      {/* <li className="nav-item">
       <Link to="/Location">Just Search Map</Link>
-      </li>
+      </li> */}
       
     </ul>
     

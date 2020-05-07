@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import Map from './Map'
 import './Map.css'
 //import { addComment} from '../actions/commentAction'
-
+import '../containers/special.css'
 
 class MapContainer extends React.Component {
 

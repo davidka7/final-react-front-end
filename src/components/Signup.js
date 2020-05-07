@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from 'react-redux';
 import { signup } from "../actions/userAction";
-
+import '../containers/special.css'
 import '../App.css';
 
 
@@ -30,7 +30,7 @@ export const Signup = ({ loginError, sign }) => {
     return (
         <form onSubmit={handleSubmit}>
             <fieldset>
-                <legend className="text-center">Sign Up And Login To Your Account</legend>
+            <div className="special"> <legend className="text-center">Sign Up And Login To Your Account</legend></div>
                 <div className="form-group row"></div>
                 
                 <div className="form-group">

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
 import {addComment} from '../actions/commentAction'
 import Button from 'react-bootstrap/Button';
-
+import '../containers/special.css'
 // or less ideally
 
 

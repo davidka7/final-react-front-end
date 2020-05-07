@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import MapContainer from './MapContainer'
 import { addComment} from '../actions/commentAction'
 import Comment from './Comment'
-
+import '../containers/special.css'
 function Advanced({topicz, toop}) {
 
    

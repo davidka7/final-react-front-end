@@ -12,7 +12,17 @@
   width: 750px;
 }*/
 body {
- background-image: url("crop.jpg");
+ background-image: url("papers.co-mm55-chicago-night-sky-city-blue-flare-40-wallpaper.jpg");
+ 
+  
+  
+
+ height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 /* 
   -webkit-animation: color-change-2x 80s linear infinite alternate both;

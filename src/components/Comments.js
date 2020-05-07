@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
 import {addComment} from '../actions/commentAction'
 import Button from 'react-bootstrap/Button';
-
+import '../containers/special.css'
 // or less ideally
 
 function Comments({addComment, city, area, state, address, lat, lng, commentz}) {
@@ -48,7 +48,7 @@ placeholder="Search...."
                value={search}>
                </input> */}
             {commentz.topic.topic.map(t=>
-            <div>
+             <div className="special">
                <input 
                id={t.id}
                type="radio"  
