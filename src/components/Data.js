@@ -94,7 +94,7 @@ activeClass="active"
 to={t.topic}
 spy={true}
 smooth={true}
-offset={0}
+offset={-40}
 duration={500}
 
 >Redirect To {t.topic}
