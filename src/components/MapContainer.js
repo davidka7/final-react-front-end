@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux"
 import Map from './Map'
-
+import './Map.css'
 //import { addComment} from '../actions/commentAction'
 
 
@@ -13,6 +13,7 @@ console.log(this.props.topicz)
         <div style={{ margin: '50px' }}>
           
             {console.log(this.props)}
+            <div id="slide-rotate-hor-b-fwd">
        <Map
        google = {this.props.google}
        center = {{lat: 18.5204, lng: 73.8567}}
@@ -20,6 +21,7 @@ console.log(this.props.topicz)
        zoom={10}
      
      />
+     </div>
      </div>
       );
     }

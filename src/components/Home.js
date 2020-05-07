@@ -7,7 +7,7 @@ class Home extends React.Component {
     render() {
         return (
             <ul>
-                Hello
+             
             </ul>
         );
     }

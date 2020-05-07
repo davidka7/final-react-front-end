@@ -11,7 +11,28 @@
   height: 450px;
   width: 750px;
 }*/
-body {background-color: yellowgreen;}
+body {
+
+  -webkit-animation: color-change-2x 16s linear infinite alternate both;
+  animation: color-change-2x 8s linear infinite alternate both;}
+  @-webkit-keyframes color-change-2x {
+    0% {
+      background-image: url("image-1.png");
+    }
+    100% {
+      background-image: url("image-2.png");
+    }
+  }
+  @keyframes color-change-2x {
+    0% {
+      background-image: url("image-1.png");
+    }
+    100% {
+      background-image: url("image-2.png");
+    }
+  }
+  
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

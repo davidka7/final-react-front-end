@@ -5,7 +5,7 @@ import Geocode from "react-geocode";
 import { connect } from "react-redux"
 import Comments from './Comments'
 import Button from 'react-bootstrap/Button';
-
+import './Map.css'
 // or less ideally
 
 
@@ -304,7 +304,7 @@ class Map2 extends React.Component{
 } else {
 map = <div style={{height: this.props.height}} />
 }
-return( map )
+return(map)
 }
     
 }
