@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
 import {addComment} from '../actions/commentAction'
+import Button from 'react-bootstrap/Button';
+
+// or less ideally
 
 
 
@@ -63,8 +66,8 @@ return (
                       value={saved_id}>
                       </input>
 
-<button type="submit"> </button>
-</form>
+<Button bsPrefix="super-btn" variant="secondary" type="submit"> Submit </Button>
+</form> 
     </div>
 
 

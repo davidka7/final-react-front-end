@@ -5,7 +5,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import store from "./Store";
 import { Provider } from "react-redux";
-
+// import $ from 'jquery';
+// import Popper from 'popper.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 ReactDOM.render(
   //<React.StrictMode>
   <Provider store={store}>

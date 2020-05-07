@@ -11,10 +11,11 @@ import Button from 'react-bootstrap/Button';
 
 Geocode.setApiKey("AIzaSyBMLTtCd0Zd6s1diqDLxHzQC7RXvXZnz_s");
 Geocode.enableDebug();
-class Map extends React.Component{
+class Map2 extends React.Component{
 
 	constructor( props ){
-		super( props );
+        super( props );
+        console.log(props, "super")
 		this.state = {
 			address: '',
 			city: '',
@@ -29,7 +30,8 @@ class Map extends React.Component{
 				lng: this.props.center.lng
 			}
 		}
-	}
+    }
+
 	/**
 	 * Get the current address from the default map position and set those values in the state
 	 */
@@ -62,8 +64,11 @@ class Map extends React.Component{
 	 * @param nextProps
 	 * @param nextState
 	 * @return {boolean}
+     
 	 */
+   
 	shouldComponentUpdate( nextProps, nextState ){
+        console.log(nextProps, nextState, "nextprops+nextstate")
 		if (
 			this.state.markerPosition.lat !== this.props.center.lat ||
 			this.state.address !== nextState.address ||
@@ -74,7 +79,8 @@ class Map extends React.Component{
 			return true
 		} else if ( this.props.center.lat === nextProps.center.lat ){
 			return false
-		}
+        }
+        else {return false}
 	}
 	/**
 	 * Get the city and set the city input value to the one selected
@@ -82,27 +88,26 @@ class Map extends React.Component{
 	 * @param addressArray
 	 * @return {string}
 	 */
+   
 	getCity = ( addressArray ) => {
-        let city = '';
-        if (addressArray !== undefined) {
+  console.log(addressArray, "addressArray")
+		let city = '';
 		for( let i = 0; i < addressArray.length; i++ ) {
 			if ( addressArray[ i ].types[0] && 'administrative_area_level_2' === addressArray[ i ].types[0] ) {
 				city = addressArray[ i ].long_name;
 				return city;
 			}
-        }
-    }
-
+		}
 	};
 	/**
 	 * Get the area and set the area input value to the one selected
 	 *
 	 * @param addressArray
 	 * @return {string}
+     * 
 	 */
 	getArea = ( addressArray ) => {
-        let area = '';
-        if (addressArray !== undefined) {
+		let area = '';
 		for( let i = 0; i < addressArray.length; i++ ) {
 			if ( addressArray[ i ].types[0]  ) {
 				for ( let j = 0; j < addressArray[ i ].types.length; j++ ) {
@@ -112,7 +117,7 @@ class Map extends React.Component{
 					}
 				}
 			}
-		}}
+		}
 	};
 	/**
 	 * Get the address and set the address input value to the one selected
@@ -120,16 +125,16 @@ class Map extends React.Component{
 	 * @param addressArray
 	 * @return {string}
 	 */
+    
 	getState = ( addressArray ) => {
-        let state = '';
-        if (addressArray !== undefined) {
+		let state = '';
 		for( let i = 0; i < addressArray.length; i++ ) {
 			for( let i = 0; i < addressArray.length; i++ ) {
 				if ( addressArray[ i ].types[0] && 'administrative_area_level_1' === addressArray[ i ].types[0] ) {
 					state = addressArray[ i ].long_name;
 					return state;
 				}
-			}}
+			}
 		}
 	};
 	/**
@@ -192,12 +197,9 @@ class Map extends React.Component{
 	 * @param place
 	 */
 	onPlaceSelected = ( place ) => {
-        console.log( 'plc', place );
-        if (place.formatted_address !== undefined) {
-        const address = place.formatted_address,
-        
-              addressArray =  place.address_components,
-              
+		console.log( 'plc', place );
+		const address = place.formatted_address,
+		      addressArray =  place.address_components,
 		      city = this.getCity( addressArray ),
 		      area = this.getArea( addressArray ),
 		      state = this.getState( addressArray ),
@@ -217,7 +219,7 @@ class Map extends React.Component{
 				lat: latValue,
 				lng: lngValue
 			},
-		})}
+		})
 	};
 
 
@@ -247,7 +249,7 @@ class Map extends React.Component{
 						/>
 						<Marker />
 						{/* For Auto complete Search Box */}
-						<Autocomplete
+						{/* <Autocomplete
 							style={{
 								width: '100%',
 								height: '40px',
@@ -255,112 +257,9 @@ class Map extends React.Component{
 								marginTop: '2px',
 								marginBottom: '500px'
 							}}
-                            onPlaceSelected={ this.onPlaceSelected }
-                           
-                           // types={['(regions)']}
-                            // types={
-                             
-                            //                           '(accounting)',
-                            //                    '(airport)',
-                            //                    '(amusement_park)',
-                            //                     '(aquarium)',
-                            //                     '(art_gallery)',
-                            //                     '(atm)',
-                            //                     '(bakery)',
-                            //                     '(bank)',
-                            //                     '(bar)',
-                            //                     '(beauty_salon)',
-                            //                     '(bicycle_store)',
-                            //                     '(book_store)',
-                            //                    '(bowling_alley)',
-                            //                     '(bus_station)',
-                            //                     '(cafe)',
-                            //                     '(campground)',
-                            //                     '(car_dealer)',
-                            //                     '(car_rental)',
-                            //                    '(car_repair)',
-                            //                     '(car_wash)',
-                            //                     '(casino)',
-                            //                     '(cemetery)',
-                            //                     '(church)',
-                            //                     '(city_hall)',
-                            //                     '(clothing_store)',
-                            //                     '(convenience_store)',
-                            //                    '(courthouse)',
-                            //                    '(dentist)',
-                            //                    '(department_store)',
-                            //                    '(doctor)',
-                            //                     '(drugstore)',
-                            //                    '(electrician)',
-                            //                    '(establishment)',
-                            //                     '(electronics_store)',
-                            //                    '(embassy)',
-                            //                     '(fire_station)',
-                            //                    '(florist)',
-                            //                     '(funeral_home)',
-                            //                 '(furniture_store)',
-                            //                    '(gas_station)',
-                            //                     '(grocery_or_supermarket)',
-                            //                    '(gym)',
-                            //                   '(hair_care)',
-                            //                    '(hardware_store)',
-                            //                     '(hindu_temple)',
-                            //                    '(home_goods_store)',
-                            //                     '(hospital)',
-                            //                    '(insurance_agency)',
-                            //                    '(jewelry_store)',
-                            //                    '(laundry)',
-                            //                    '(lawyer)',
-                            //                   '(library)',
-                            //                     '(light_rail_station)',
-                            //                     '(liquor_store)',
-                            //                     '(local_government_office)',
-                            //                   '(locksmith)',
-                            //                    '(lodging)',
-                            //                     '(meal_delivery)',
-                            //                     '(meal_takeaway)',
-                            //                    '(mosque)',
-                            //                     '(movie_rental)',
-                            //                     '(movie_theater)',
-                            //                     '(moving_company)',
-                            //                    '(museum)',
-                            //                     '(night_club)',
-                            //                     '(painter)',
-                            //                 '(park)',
-                            //                     '(parking)',
-                            //                     '(pet_store)',
-                            //                    '(pharmacy)',
-                            //                     '(physiotherapist)',
-                            //                     '(plumber)',
-                            //                     '(police)',
-                            //                     '(post_office)',
-                            //                     '(primary_school)',
-                            //                     '(real_estate_agency)',
-                            //                     '(regions)',
-                            //                    '(restaurant)',
-                            //                     '(roofing_contractor)',
-                            //                     '(rv_park)',
-                            //                     '(school)',
-                            //                     '(secondary_school)',
-                            //                     '(shoe_store)',
-                            //                     '(shopping_mall)',
-                            //                    '(spa)',
-                            //                     '(stadium)',
-                            //                     '(storage)',
-                            //                     '(store)',
-                            //                     '(subway_station)',
-                            //                    '(supermarket)',
-                            //                     '(synagogue)',
-                            //                     '(taxi_stand)',
-                            //                    '(tourist_attraction)',
-                            //                     'train_station',
-                            //                    '(transit_station)',
-                            //                     '(travel_agency)',
-                            //                     '(university)',
-                            //                     '(veterinary_care)',
-                            //                     '(zoo)'
-                            //                 }
-						/>
+							onPlaceSelected={ this.onPlaceSelected }
+							types={['(regions)']}
+						/> */}
 					</GoogleMap>
 				)
 			)
@@ -388,7 +287,6 @@ class Map extends React.Component{
 						<input type="text" name="address" className="form-control" onChange={ this.onChange } readOnly="readOnly" value={ this.state.address }/>
 					</div>
 				</div> */}
-     <Comments city={this.state.city} area={this.state.area} state={this.state.state} address={this.state.address} lat={this.state.markerPosition.lat} lng={this.state.markerPosition.lng}/>
      <AsyncMap
       googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMLTtCd0Zd6s1diqDLxHzQC7RXvXZnz_s&libraries=places"
      ///place/textsearch/
@@ -412,4 +310,4 @@ return( map )
 }
 
 
-export default connect(store=>({topicz:store}))(Map)
+export default connect(store=>({topicz:store}))(Map2)

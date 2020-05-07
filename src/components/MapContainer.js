@@ -11,7 +11,8 @@ class MapContainer extends React.Component {
 console.log(this.props.topicz)
       return (
         <div style={{ margin: '50px' }}>
-            HI
+          
+            {console.log(this.props)}
        <Map
        google = {this.props.google}
        center = {{lat: 18.5204, lng: 73.8567}}

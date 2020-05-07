@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { addComment} from '../actions/commentAction'
 import Comment from './Comment'
-
+import Advanced from "./Advanced";
+import '../Search.css';
+//import Pace from 'react-pace-progress'
+import '../Search.css'
+import { BounceLoader, BarLoader, BeatLoader} from 'react-spinners'
 // import {
 //   withGoogleMap,
 //   withScriptjs,
@@ -17,7 +21,13 @@ import Comment from './Comment'
 //     margin: "auto"
 //   };
 export default function Map({toop}) {
-    
+    // load = ()=>{
+    //     this.setState({isLoading: true});
+    //     fetch().then(()=>{
+    //       // deal with data fetched
+    //       this.setState({isLoading: false})
+    //     })
+    //   };
 //   const [selectedPark, setSelectedPark] = useState(null);
 
 //   useEffect(() => {
@@ -32,22 +42,48 @@ export default function Map({toop}) {
 //       window.removeEventListener("keydown", listener);
 //     };
 //   }, []);
+// const loader = document.querySelector('.loader');
 
+// // if you want to show the loader when React loads data again
+// const showLoader = () => loader.classList.remove('loader--hide');
+
+// const hideLoader = () => loader.classList.add('loader--hide');
+
+// const App = ({ hideLoader }) => {
+//   useEffect(hideLoader, []);
+  
+//   return (
+//     <div>I'm the app</div>
+//   ); 
+// }
+// setTimeout(() => {
+    
  return (
-     <div>
+     <div className='Search'>
+         
+
+         {/* {this.state.isLoading ? <Pace color="#27ae60"/> : null} */}
          {/* <Comment toop={toop}/> */}
+         <div id='showMe'>
+         {/* <div id='hideMe'  >
+         <BeatLoader size={280} color="red" loading/>
+
+
+
+         </div> */}
+
+
+         <Advanced toop={toop}/>
+         </div>
+
          </div>
 //     <GoogleMap
 //       defaultZoom={10}
 //       defaultCenter={{ lat: 45.4211, lng: -75.6903 }}
 //       defaultOptions={{ styles: mapStyles }}
-//     >
-     
-//         <Marker
-        
+//     > 
+//         <Marker   
 //         />
-    
-
 //       {selectedPark && (
 //         <InfoWindow
 //           onCloseClick={() => {
@@ -65,7 +101,9 @@ export default function Map({toop}) {
 //         </InfoWindow>
 //       )}
 //     </GoogleMap>
-)
+ )
+// }
+// , 1000);
  }
 
 // const MapWrapped = withScriptjs(withGoogleMap(Map));

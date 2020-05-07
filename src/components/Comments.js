@@ -1,11 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
 import {addComment} from '../actions/commentAction'
+import Button from 'react-bootstrap/Button';
+
+// or less ideally
 
 function Comments({addComment, city, area, state, address, lat, lng, commentz}) {
 console.log(city, area, state, address, lat, lng)
-const [comment, setComment] = useState('');
-const [search, setSearch] = useState('');
+// const [comment, setComment] = useState('');
+// const [search, setSearch] = useState('');
 const [saved_id, setSaved_id] = useState('');
     // console.log(toop)
     // const handleCommentChange = e => {
@@ -21,7 +24,8 @@ const [saved_id, setSaved_id] = useState('');
         e.preventDefault();
         e.stopPropagation();
         console.log('hey')
-       addComment(`${city},${area},${state},${address}`, `${lat}, ${lng}`, saved_id);
+        console.log(`${city},${area},${state},${address}`, `${address}`, lat, lng, saved_id)
+       addComment(`${city},${area},${state},${address}`, `${address}`, lat, lng, saved_id);
       }
 //getter() {
 //if (getTopic.data) { }
@@ -31,7 +35,8 @@ const [saved_id, setSaved_id] = useState('');
 function fixer(){
     console.log(city)
 if (city) {
-return <form onSubmit={handleSubmit}>
+return <div>
+Add A saved Location to Your existing Topics<form onSubmit={handleSubmit}>
 {/* <input
 placeholder="Comment...."
                onChange={handleCommentChange}
@@ -55,14 +60,12 @@ placeholder="Search...."
                )}
                     
 
-<button type="submit"> </button>
-</form>
+<Button bsPrefix="super-btn" variant="secondary" type="submit"> Submit</Button>
+</form> </div>
 
 }
     }
-    const Checkbox = props => (
-        <input type="checkbox" {...props} />
-      )
+
 return (
 <div>
 {fixer()}
@@ -71,8 +74,8 @@ return (
 }
 const mapDispatchToProps = (dispatch) => {
 return {
-   addComment: (comment, search, saved_id) => {
-        addComment(comment, search, saved_id).then(dispatch)
+   addComment: (comment, search, lat, lng, saved_id) => {
+        addComment(comment, search, lat, lng, saved_id).then(dispatch)
 }
    }}
 export default connect(store=>({commentz: store}), mapDispatchToProps)(Comments)

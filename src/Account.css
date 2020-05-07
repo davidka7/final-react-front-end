@@ -1,0 +1,89 @@
+.Account {
+
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center
+}
+/* #hideMe {
+    -moz-animation: cssAnimation 0s ease-in 5s forwards;
+
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+   
+    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    visibility:hidden
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:visible;
+    }
+} */
+#showMe {
+    -webkit-animation: cssAnimation 8s forwards; 
+    animation: cssAnimation 8s forwards;
+    position: relative;
+}
+@keyframes cssAnimation {
+    100%   {opacity: 1;}
+    /* 70%  {opacity: 1;} */
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+}
+@-webkit-keyframes cssAnimation {
+    100%   {opacity: 1;}
+    /* 70%  {opacity: 1;} */
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+
+    0% {opacity: 0;}
+}
+
+#hideMe {
+    size: 80%;
+    margin-bottom: 400px;
+    margin:center;
+    -webkit-animation: Animation 5s forwards; 
+    animation: Animation 5s forwards;
+    position: absolute;
+}
+@keyframes Animation {
+    0%   {opacity: 1;}
+    0%   {opacity: 1;}
+    0%   {opacity: 1;}
+
+    /* 70%  {opacity: 1;} */
+    100% {opacity: 0;}
+}
+@-webkit-keyframes Animation {
+    0%   {opacity: 1;}
+0%   {opacity: 1;}
+0%   {opacity: 1;}
+0%   {opacity: 1;}
+    /* 70%  {opacity: 1;} */
+    100% {opacity: 0;}
+}

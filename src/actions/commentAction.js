@@ -1,9 +1,11 @@
-export const addComment = ( comment, search, saved_id) => {
+export const addComment = ( comment, search, lat, lng, saved_id) => {
     const entry = {
         comment: {
         
             comment: comment,
             search: search,
+            lat: lat,
+            lng: lng,
             saved_id: saved_id
         }
     }

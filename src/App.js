@@ -1,4 +1,4 @@
-import React, { useReducer} from 'react';
+import React from 'react';
 import { connect } from "react-redux"
 import './App.css';
 import Home from './components/Home'
@@ -9,6 +9,9 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Account from './containers/Account';
 //export const TopicContext = React.createContext()
 //import {useSelector, useDispatch}from 'react-redux'
+// import Button from 'react-bootstrap/Button';
+
+// or less ideally
 
 
 

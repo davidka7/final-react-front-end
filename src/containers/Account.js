@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from "react";
 import Data from '../components/Data'
 import Search from '../components/Search'
-import Advanced from '../components/Advanced'
+import LocationSearchInput from '../components/LocationSearchInput'
 import {getTopic} from '../actions/topicAction'
 import {getComment} from '../actions/commentAction'
 import {connect} from 'react-redux'
+import { BeatLoader} from 'react-spinners'
+import RolePole from '../components/RolePole'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,7 +15,10 @@ import {
   Link
 } from "react-router-dom";
 
+
+
 function Account({getTopic, toop, getComment}) {
+    
     useEffect(() => {
         getTopic()
     }, [])
@@ -20,6 +26,8 @@ function Account({getTopic, toop, getComment}) {
         getComment()
     }, [])
   return (
+    <div id='showMe'>
+ 
     <Router>
       <div>
         <nav>
@@ -31,6 +39,7 @@ function Account({getTopic, toop, getComment}) {
               <Link to="/Search">Just Search Map</Link>
             </li>
             <li>
+            <Link to="/Location">Just Search Map</Link>
               {/* <Link to="/Advanced">Advanced Search and Save</Link> */}
             </li>
           </ul>
@@ -45,14 +54,23 @@ function Account({getTopic, toop, getComment}) {
             <Route path="/Search">
             <Search toop={toop}/>
           </Route>
+          <Route path="/Location">
+        
+          </Route>
           {/* <Route path="/Advanced"> */}
             
           {/* </Route> */}
         </Switch>
-        <Advanced toop={toop}/>
+        
+        {/* {   ((toop.topic) ? null :  <Advanced toop={toop}/>) } */}
+        
       </div>
     </Router>
-    
+    <div id='hideMe'  >
+            
+    <BeatLoader size={1000} color="red" loading/>
+    </div>
+    </div>
   );
 }
 

@@ -1,0 +1,74 @@
+.Search {
+
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center
+}
+/* #hideMe {
+    -moz-animation: cssAnimation 0s ease-in 5s forwards;
+
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+   
+    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    visibility:hidden
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:visible;
+    }
+} */
+#showMe {
+    -webkit-animation: cssAnimation 5s forwards; 
+    animation: cssAnimation 5s forwards;
+    position: relative;
+}
+@keyframes cssAnimation {
+    100%   {opacity: 1;}
+    /* 70%  {opacity: 1;} */
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+}
+@-webkit-keyframes cssAnimation {
+    100%   {opacity: 1;}
+    /* 70%  {opacity: 1;} */
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+    0% {opacity: 0;}
+}
+
+#hideMe {
+    -webkit-animation: Animation 3s forwards; 
+    animation: Animation 3s forwards;
+    position: absolute;
+}
+@keyframes Animation {
+    0%   {opacity: 1;}
+    0%   {opacity: 1;}
+    0%   {opacity: 1;}
+
+    /* 70%  {opacity: 1;} */
+    100% {opacity: 0;}
+}
+@-webkit-keyframes Animation {
+    0%   {opacity: 1;}
+0%   {opacity: 1;}
+0%   {opacity: 1;}
+0%   {opacity: 1;}
+    /* 70%  {opacity: 1;} */
+    100% {opacity: 0;}
+}
