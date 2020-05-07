@@ -97,7 +97,7 @@ smooth={true}
 offset={0}
 duration={500}
 
->click
+>Redirect To {t.topic}
 </Link>
 </li>
 )}
