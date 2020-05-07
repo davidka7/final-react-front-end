@@ -12,7 +12,7 @@ const NavBar = ({user, signout}) => {
   
           
     <ul className="navbar-nav mr-auto">
-<div clasName="row">
+<div className="row">
     <div className="navbar">
       <li>
        <NavLink className="donty" to='/Account' 

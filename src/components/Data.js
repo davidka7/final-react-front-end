@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
 import {getTopic, addTopic, deleteTopic} from '../actions/topicAction'
 import { getComment} from '../actions/commentAction'
+// import { getSize} from '../actions/sizeAction'
 import Button from 'react-bootstrap/Button';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -14,7 +15,7 @@ import {Link} from 'react-scroll'
 // or less ideally
 // import $ from 'jquery';
 // import Popper from 'popper.js';
-function Data({getTopic, toop, addTopic, deleteTopic, topicz}) {
+function Data({getTopic, toop, addTopic, deleteTopic, topicz, getSize}) {
     const [topic, setTopic] = useState('');
     const user_id = topicz.userContext.user.user.id;
     const [mappy, setMappy] = useState("hi")
@@ -71,8 +72,10 @@ console.log(toop.topic.topic, "hehe")
  //let comments= [].slice.call(toop.comment) 
  //var array = toop.comment
 return (
-    
+   
 <div className="row row-cols-1 row-cols-md-2">
+
+    
 <div class="col mb-4">
 <div class="card">
 <div class="card-body">

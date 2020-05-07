@@ -195,7 +195,7 @@ class Map extends React.Component{
         console.log( 'plc', place );
         if (place.formatted_address !== undefined) {
         const address = place.formatted_address,
-        
+      
               addressArray =  place.address_components,
               
 		      city = this.getCity( addressArray ),
@@ -203,7 +203,8 @@ class Map extends React.Component{
 		      state = this.getState( addressArray ),
 		      latValue = place.geometry.location.lat(),
 		      lngValue = place.geometry.location.lng();
-		// Set these values in the state.
+        // Set these values in the state.
+     
 		this.setState({
 			address: ( address ) ? address : '',
 			area: ( area ) ? area : '',
@@ -389,6 +390,7 @@ class Map extends React.Component{
 					</div>
 				</div> */}
      <Comments city={this.state.city} area={this.state.area} state={this.state.state} address={this.state.address} lat={this.state.markerPosition.lat} lng={this.state.markerPosition.lng}/>
+{console.log(this.state.city, this.state.area, this.state.state, this.state.address, this.state.markerPosition.lat, this.state.markerPosition.lng)}
      <AsyncMap
       googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMLTtCd0Zd6s1diqDLxHzQC7RXvXZnz_s&libraries=places"
      ///place/textsearch/

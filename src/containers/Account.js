@@ -5,9 +5,9 @@ import LocationSearchInput from '../components/LocationSearchInput'
 import {getTopic} from '../actions/topicAction'
 import {getComment} from '../actions/commentAction'
 import {connect} from 'react-redux'
-import { BeatLoader} from 'react-spinners'
-import RolePole from '../components/RolePole'
-
+// import { BeatLoader} from 'react-spinners'
+// import RolePole from '../components/RolePole'
+import { getSize} from '../actions/sizeAction'
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,13 +17,16 @@ import {
 
 
 
-function Account({getTopic, toop, getComment}) {
+function Account({getTopic, toop, getComment, getSize}) {
     
     useEffect(() => {
         getTopic()
     }, [])
     useEffect(() => {
         getComment()
+    }, [])
+    useEffect(() => {
+        getSize()
     }, [])
   return (
     <div id='showMe'>
@@ -105,6 +108,7 @@ const mapDispatchToProps = (dispatch) => {
    
     return {
         getComment: () => getComment(dispatch),
-        getTopic: () => getTopic(dispatch)
+        getTopic: () => getTopic(dispatch),
+        getSize: () => getSize(dispatch)
      }}
     export default connect(store=>({toop:store}), mapDispatchToProps)(Account)

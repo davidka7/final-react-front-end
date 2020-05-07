@@ -14,6 +14,27 @@ const [saved_id, setSaved_id] = useState('');
     // const handleCommentChange = e => {
     //     setComment(e.target.value);
     //   }
+    const [numbery, setNumbery] = useState(5)
+    const [numb, setNumb] = useState(2)
+    const [sizer, setSizer] = useState("Small")
+        const handleClick = (e) => {
+            //...
+            if (numbery==5) {
+
+                setNumbery(4)
+                setSizer("Big")
+                setNumb(1)
+            }
+            else {
+setNumbery(5)
+setSizer("Small")
+setNumb(2)
+            }
+            
+       }
+      
+    console.log(city)
+    console.log(state)
     //   const handleSearchChange = e => {
     //     setSearch(e.target.value);
     //   }
@@ -24,6 +45,9 @@ const [saved_id, setSaved_id] = useState('');
         e.preventDefault();
         e.stopPropagation();
         console.log('hey')
+
+
+        
         console.log(`${city},${area},${state},${address}`, `${address}`, lat, lng, saved_id)
        addComment(`${city},${area},${state},${address}`, `${address}`, lat, lng, saved_id);
       }
@@ -35,20 +59,13 @@ const [saved_id, setSaved_id] = useState('');
 function fixer(){
     console.log(city)
 if (city) {
-return  <div className="special">
-Add A saved Location to Your existing Topics<form onSubmit={handleSubmit}>
-{/* <input
-placeholder="Comment...."
-               onChange={handleCommentChange}
-               value={comment}>
-               </input>
-               <input
-placeholder="Search...."
-               onChange={handleSearchChange}
-               value={search}>
-               </input> */}
+    
+return  <div className={`special${numbery}`}>
+Add A saved Location to Your existing Topics
+<Button onClick={handleClick}>Toggle:{sizer} </Button>
+<form onSubmit={handleSubmit}>
             {commentz.topic.topic.map(t=>
-             <div className="special">
+             <div className={`special${numb}`}>
                <input 
                id={t.id}
                type="radio"  
@@ -56,13 +73,10 @@ placeholder="Search...."
                onChange={handleSaved_idChange}
                value={t.id}
                label={t.topic} /> 
-              {t.topic}</div>
+              {t.topic} </div>
                )}
-                    
-
 <Button bsPrefix="super-btn" variant="secondary" type="submit"> Submit</Button>
 </form> </div>
-
 }
     }
 
