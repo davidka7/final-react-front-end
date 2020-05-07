@@ -29,7 +29,37 @@ function Account({getTopic, toop, getComment}) {
     <div id='showMe'>
  
     <Router>
-      <div>
+    <div>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a className="navbar-brand" href="#">Navbar</a>
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div className="navbar navbar-expand-lg navbar-dark bg-dark" id="navbarColor02">
+  
+          
+    <ul className="navbar-nav mr-auto">
+      <li className="nav-item active">
+      <Link to="/Data">Saved Info</Link>
+      </li>
+      <li className="nav-item">
+      <Link to="/Search">Just Search Map</Link>
+      </li>
+      <li className="nav-item">
+      <Link to="/Location">Just Search Map</Link>
+      </li>
+      
+    </ul>
+    
+  </div>
+</nav>
+        
+        {/* {   ((toop.topic) ? null :  <Advanced toop={toop}/>) } */}
+        
+      </div>
+      {/* <div>
         <nav>
           <ul>
             <li>
@@ -40,10 +70,10 @@ function Account({getTopic, toop, getComment}) {
             </li>
             <li>
             <Link to="/Location">Just Search Map</Link>
-              {/* <Link to="/Advanced">Advanced Search and Save</Link> */}
+               <Link to="/Advanced">Advanced Search and Save</Link> 
             </li>
           </ul>
-        </nav>
+        </nav> */}
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -61,15 +91,12 @@ function Account({getTopic, toop, getComment}) {
             
           {/* </Route> */}
         </Switch>
-        
-        {/* {   ((toop.topic) ? null :  <Advanced toop={toop}/>) } */}
-        
-      </div>
+     
     </Router>
-    <div id='hideMe'  >
+    {/* <div id='hideMe'  >
             
     <BeatLoader size={1000} color="red" loading/>
-    </div>
+    </div> */}
     </div>
   );
 }

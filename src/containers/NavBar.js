@@ -6,21 +6,33 @@ import { logout } from '../actions/userAction';
 const NavBar = ({user, signout}) => {
   
   return (
-
+   
+      
+    <div className="navbar navbar-expand-lg navbar-dark bg-dark" id="navbarColor02">
+  
+          
+    <ul className="navbar-nav mr-auto">
+<div clasName="row">
     <div className="navbar">
+      <li>
        <NavLink className="donty" to='/Account' 
-        >Account</NavLink>
+        >Account                /</NavLink>
+        </li>
+        
+        <li>
       <NavLink className="donty" to='/' 
-        >Home</NavLink>
+        >Home                    /</NavLink>
      
-    
+    </li>
         <li>
                     { user ? <button className="radius-5px btn btn-danger" onClick={signout}>Sign out</button> : null }
                     </li>
               
       
     </div>
-
+    </div>
+ </ul>
+ </div>
   );
 };
 export default connect(

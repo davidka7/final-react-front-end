@@ -12,26 +12,32 @@
   width: 750px;
 }*/
 body {
-
-  -webkit-animation: color-change-2x 16s linear infinite alternate both;
-  animation: color-change-2x 8s linear infinite alternate both;}
+ background-image: url("crop.jpg");
+}
+/* 
+  -webkit-animation: color-change-2x 80s linear infinite alternate both;
+  animation: color-change-2x 80s linear infinite alternate both;} 
   @-webkit-keyframes color-change-2x {
     0% {
-      background-image: url("image-1.png");
+      background-image: url("crop.jpg");
     }
-    100% {
-      background-image: url("image-2.png");
+   100% {
+      background-image: url("crop.jpg");
     }
   }
   @keyframes color-change-2x {
     0% {
-      background-image: url("image-1.png");
+      background-image: url("crop.jpg");
     }
-    100% {
-      background-image: url("image-2.png");
+   100% {
+      background-image: url("crop.jpg");
     }
+  } */
+  .navbar navbar-expand-lg navbar-dark bg-dark{
+opacity:.4;
+
+
   }
-  
 
 .App-logo {
   height: 40vmin;
