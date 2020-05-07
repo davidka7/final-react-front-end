@@ -68,7 +68,7 @@ const handleDelete = (id) => {
 //if (getTopic.data) { }
 //}
 console.log(toop.topic.topic, "hehe")
-
+{  console.log(toop.userContext.user.user.id)}
  //let comments= [].slice.call(toop.comment) 
  //var array = toop.comment
 return (
@@ -89,9 +89,9 @@ return (
                       onChange={handleTopicChange}
                       value={topic}>
                       </input>
-                      
+                   
 <Button bsPrefix="super-btn" variant="secondary" type="submit"> Submit</Button>
-{toop.topic.topic.map(t => <li>
+{toop.topic.topic.filter(z=>z.user_id==toop.userContext.user.user.id).map(t => <li>
 <Link
 activeClass="active"
 to={t.topic}
@@ -110,7 +110,7 @@ duration={500}
 </div>
 </div>
 </div>
-{toop.topic.topic.map(t=><li><div class="col mb-4">
+{toop.topic.topic.filter(z=>z.user_id==toop.userContext.user.user.id).map(t=><li><div class="col mb-4">
 <div class="card">
 <div class="card-body">
 <h5 class="card-title" id={t.topic}>{t.topic} </h5>

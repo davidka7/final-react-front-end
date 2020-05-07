@@ -64,7 +64,7 @@ return  <div className={`special${numbery}`}>
 Add A saved Location to Your existing Topics
 <Button onClick={handleClick}>Toggle:{sizer} </Button>
 <form onSubmit={handleSubmit}>
-            {commentz.topic.topic.map(t=>
+            {commentz.topic.topic.filter(z=>z.user_id==commentz.userContext.user.user.id).map(t=>
              <div className={`special${numb}`}>
                <input 
                id={t.id}
