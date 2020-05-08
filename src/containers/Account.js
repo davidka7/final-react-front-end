@@ -51,7 +51,7 @@ function Account({getTopic, toop, getComment, getSize}) {
       <Link to="/Search">Just Search Map</Link>
       </li>
       {/* <li className="nav-item">
-      <Link to="/Location">Just Search Map</Link>
+      <Link to="/Location">Locate it</Link>
       </li> */}
       
     </ul>
