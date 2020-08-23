@@ -407,6 +407,7 @@ class Map extends React.Component{
 
 	
 
+
 />
 </div>
 } else {
