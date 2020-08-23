@@ -404,6 +404,7 @@ class Map extends React.Component{
         <div style={{ height: `100%` }} />
 	}
 	
+
 	
 />
 </div>
