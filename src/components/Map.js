@@ -392,7 +392,7 @@ class Map extends React.Component{
      <Comments city={this.state.city} area={this.state.area} state={this.state.state} address={this.state.address} lat={this.state.markerPosition.lat} lng={this.state.markerPosition.lng}/>
 {console.log(this.state.city, this.state.area, this.state.state, this.state.address, this.state.markerPosition.lat, this.state.markerPosition.lng)}
      <AsyncMap
-      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMLTtCd0Zd6s1diqDLxHzQC7RXvXZnz_s&libraries=places"
+      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCdArNxLRThnfwFpJg4yH-tQbMpgGGg8s&libraries=places"
      ///place/textsearch/
       loadingElement={
         <div style={{ height: `100%` }} />
@@ -402,7 +402,8 @@ class Map extends React.Component{
     }
     mapElement={
         <div style={{ height: `100%` }} />
-    }
+	}
+	
 />
 </div>
 } else {
