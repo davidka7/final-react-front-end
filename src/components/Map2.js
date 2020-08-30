@@ -308,6 +308,6 @@ return(map)
 }
     
 }
-//this one holds where you will look into from topics
+//this one holds where you will look into from topics, and see one specific location
 
 export default connect(store=>({topicz:store}))(Map2)
