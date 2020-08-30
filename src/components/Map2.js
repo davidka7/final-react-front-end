@@ -308,6 +308,6 @@ return(map)
 }
     
 }
-
+//this one holds where you will look into from topics
 
 export default connect(store=>({topicz:store}))(Map2)
