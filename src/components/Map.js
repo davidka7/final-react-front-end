@@ -406,7 +406,7 @@ class Map extends React.Component{
 	
 
 
-	     // hi this is my map container 
+	     // hi this is my map container , container 1 that holds the map you will choose from to save to topic
 
 
 />
