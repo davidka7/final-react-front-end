@@ -33,3 +33,4 @@ const mapStateToProps = state => {
     }
 }
 export default connect(store=>({topicz:store}),mapStateToProps)(MapContainer)
+//this holds my map one where you choose location to speicifc topic
